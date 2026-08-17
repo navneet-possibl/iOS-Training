@@ -5,11 +5,21 @@
 //  Created by Navneet on 17/08/26.
 //
 
-
 enum LogError: Error { //Creation of error
     case invalidEmail
     case wrongPassword
     case userNotFound
+}
+
+//API Example
+
+enum APIError : Error{
+    case invalidURL
+    case loginFailed
+    case unauthenticated
+    case serverError
+    case unknown
+    
 }
 
 
@@ -48,14 +58,3 @@ class ErrorHandling {
     }
 }
 
-
-//API Example
-
-enum APIError : Error{
-    case invalidURL
-    case loginFailed
-    case unauthenticated
-    case serverError
-    case unknown
-    
-}

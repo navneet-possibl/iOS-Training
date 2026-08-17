@@ -104,6 +104,6 @@ class EnumExamples {
         print(NetworkStatus.connected.description()) // - result "Internet available"
     }
 }
-
-
 //Raw has default predefined cases but associated can have different data for same case
+
+
