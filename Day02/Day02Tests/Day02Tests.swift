@@ -2,7 +2,7 @@
 //  Day02Tests.swift
 //  Day02Tests
 //
-//  Created by HIMANK on 18/08/26.
+//  Created by Navneet on 18/08/26.
 //
 
 import Testing
