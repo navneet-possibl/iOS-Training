@@ -7,62 +7,62 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		F27E808230332C2F009F45F4 /* PBXContainerItemProxy */ = {
+		F27E812C3034612D009F45F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F27E806C30332C2B009F45F4 /* Project object */;
+			containerPortal = F27E81163034612A009F45F4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F27E807330332C2B009F45F4;
-			remoteInfo = iOS_Training;
+			remoteGlobalIDString = F27E811D3034612A009F45F4;
+			remoteInfo = Day2;
 		};
-		F27E808C30332C2F009F45F4 /* PBXContainerItemProxy */ = {
+		F27E81363034612D009F45F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F27E806C30332C2B009F45F4 /* Project object */;
+			containerPortal = F27E81163034612A009F45F4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F27E807330332C2B009F45F4;
-			remoteInfo = iOS_Training;
+			remoteGlobalIDString = F27E811D3034612A009F45F4;
+			remoteInfo = Day2;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F27E807430332C2B009F45F4 /* iOS_Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Training.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F27E808130332C2F009F45F4 /* iOS_TrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_TrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F27E808B30332C2F009F45F4 /* iOS_TrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_TrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F27E811E3034612A009F45F4 /* Day2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Day2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F27E812B3034612D009F45F4 /* Day2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Day2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F27E81353034612D009F45F4 /* Day2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Day2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F27E807630332C2B009F45F4 /* iOS_Training */ = {
+		F27E81203034612A009F45F4 /* Day2 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = iOS_Training;
+			path = Day2;
 			sourceTree = "<group>";
 		};
-		F27E808430332C2F009F45F4 /* iOS_TrainingTests */ = {
+		F27E812E3034612D009F45F4 /* Day2Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = iOS_TrainingTests;
+			path = Day2Tests;
 			sourceTree = "<group>";
 		};
-		F27E808E30332C2F009F45F4 /* iOS_TrainingUITests */ = {
+		F27E81383034612D009F45F4 /* Day2UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = iOS_TrainingUITests;
+			path = Day2UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F27E807130332C2B009F45F4 /* Frameworks */ = {
+		F27E811B3034612A009F45F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F27E807E30332C2F009F45F4 /* Frameworks */ = {
+		F27E81283034612D009F45F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F27E808830332C2F009F45F4 /* Frameworks */ = {
+		F27E81323034612D009F45F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F27E806B30332C2B009F45F4 = {
+		F27E81153034612A009F45F4 = {
 			isa = PBXGroup;
 			children = (
-				F27E807630332C2B009F45F4 /* iOS_Training */,
-				F27E808430332C2F009F45F4 /* iOS_TrainingTests */,
-				F27E808E30332C2F009F45F4 /* iOS_TrainingUITests */,
-				F27E807530332C2B009F45F4 /* Products */,
+				F27E81203034612A009F45F4 /* Day2 */,
+				F27E812E3034612D009F45F4 /* Day2Tests */,
+				F27E81383034612D009F45F4 /* Day2UITests */,
+				F27E811F3034612A009F45F4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F27E807530332C2B009F45F4 /* Products */ = {
+		F27E811F3034612A009F45F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F27E807430332C2B009F45F4 /* iOS_Training.app */,
-				F27E808130332C2F009F45F4 /* iOS_TrainingTests.xctest */,
-				F27E808B30332C2F009F45F4 /* iOS_TrainingUITests.xctest */,
+				F27E811E3034612A009F45F4 /* Day2.app */,
+				F27E812B3034612D009F45F4 /* Day2Tests.xctest */,
+				F27E81353034612D009F45F4 /* Day2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,134 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F27E807330332C2B009F45F4 /* iOS_Training */ = {
+		F27E811D3034612A009F45F4 /* Day2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F27E809530332C2F009F45F4 /* Build configuration list for PBXNativeTarget "iOS_Training" */;
+			buildConfigurationList = F27E813F3034612D009F45F4 /* Build configuration list for PBXNativeTarget "Day2" */;
 			buildPhases = (
-				F27E807030332C2B009F45F4 /* Sources */,
-				F27E807130332C2B009F45F4 /* Frameworks */,
-				F27E807230332C2B009F45F4 /* Resources */,
+				F27E811A3034612A009F45F4 /* Sources */,
+				F27E811B3034612A009F45F4 /* Frameworks */,
+				F27E811C3034612A009F45F4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F27E807630332C2B009F45F4 /* iOS_Training */,
+				F27E81203034612A009F45F4 /* Day2 */,
 			);
-			name = iOS_Training;
+			name = Day2;
 			packageProductDependencies = (
 			);
-			productName = iOS_Training;
-			productReference = F27E807430332C2B009F45F4 /* iOS_Training.app */;
+			productName = Day2;
+			productReference = F27E811E3034612A009F45F4 /* Day2.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F27E808030332C2F009F45F4 /* iOS_TrainingTests */ = {
+		F27E812A3034612D009F45F4 /* Day2Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F27E809830332C2F009F45F4 /* Build configuration list for PBXNativeTarget "iOS_TrainingTests" */;
+			buildConfigurationList = F27E81423034612D009F45F4 /* Build configuration list for PBXNativeTarget "Day2Tests" */;
 			buildPhases = (
-				F27E807D30332C2F009F45F4 /* Sources */,
-				F27E807E30332C2F009F45F4 /* Frameworks */,
-				F27E807F30332C2F009F45F4 /* Resources */,
+				F27E81273034612D009F45F4 /* Sources */,
+				F27E81283034612D009F45F4 /* Frameworks */,
+				F27E81293034612D009F45F4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F27E808330332C2F009F45F4 /* PBXTargetDependency */,
+				F27E812D3034612D009F45F4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				F27E808430332C2F009F45F4 /* iOS_TrainingTests */,
+				F27E812E3034612D009F45F4 /* Day2Tests */,
 			);
-			name = iOS_TrainingTests;
+			name = Day2Tests;
 			packageProductDependencies = (
 			);
-			productName = iOS_TrainingTests;
-			productReference = F27E808130332C2F009F45F4 /* iOS_TrainingTests.xctest */;
+			productName = Day2Tests;
+			productReference = F27E812B3034612D009F45F4 /* Day2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F27E808A30332C2F009F45F4 /* iOS_TrainingUITests */ = {
+		F27E81343034612D009F45F4 /* Day2UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F27E809B30332C2F009F45F4 /* Build configuration list for PBXNativeTarget "iOS_TrainingUITests" */;
+			buildConfigurationList = F27E81453034612D009F45F4 /* Build configuration list for PBXNativeTarget "Day2UITests" */;
 			buildPhases = (
-				F27E808730332C2F009F45F4 /* Sources */,
-				F27E808830332C2F009F45F4 /* Frameworks */,
-				F27E808930332C2F009F45F4 /* Resources */,
+				F27E81313034612D009F45F4 /* Sources */,
+				F27E81323034612D009F45F4 /* Frameworks */,
+				F27E81333034612D009F45F4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F27E808D30332C2F009F45F4 /* PBXTargetDependency */,
+				F27E81373034612D009F45F4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				F27E808E30332C2F009F45F4 /* iOS_TrainingUITests */,
+				F27E81383034612D009F45F4 /* Day2UITests */,
 			);
-			name = iOS_TrainingUITests;
+			name = Day2UITests;
 			packageProductDependencies = (
 			);
-			productName = iOS_TrainingUITests;
-			productReference = F27E808B30332C2F009F45F4 /* iOS_TrainingUITests.xctest */;
+			productName = Day2UITests;
+			productReference = F27E81353034612D009F45F4 /* Day2UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F27E806C30332C2B009F45F4 /* Project object */ = {
+		F27E81163034612A009F45F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2630;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
-					F27E807330332C2B009F45F4 = {
+					F27E811D3034612A009F45F4 = {
 						CreatedOnToolsVersion = 26.3;
 					};
-					F27E808030332C2F009F45F4 = {
+					F27E812A3034612D009F45F4 = {
 						CreatedOnToolsVersion = 26.3;
-						TestTargetID = F27E807330332C2B009F45F4;
+						TestTargetID = F27E811D3034612A009F45F4;
 					};
-					F27E808A30332C2F009F45F4 = {
+					F27E81343034612D009F45F4 = {
 						CreatedOnToolsVersion = 26.3;
-						TestTargetID = F27E807330332C2B009F45F4;
+						TestTargetID = F27E811D3034612A009F45F4;
 					};
 				};
 			};
-			buildConfigurationList = F27E806F30332C2B009F45F4 /* Build configuration list for PBXProject "iOS_Training" */;
+			buildConfigurationList = F27E81193034612A009F45F4 /* Build configuration list for PBXProject "Day2" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = F27E806B30332C2B009F45F4;
+			mainGroup = F27E81153034612A009F45F4;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = F27E807530332C2B009F45F4 /* Products */;
+			productRefGroup = F27E811F3034612A009F45F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F27E807330332C2B009F45F4 /* iOS_Training */,
-				F27E808030332C2F009F45F4 /* iOS_TrainingTests */,
-				F27E808A30332C2F009F45F4 /* iOS_TrainingUITests */,
+				F27E811D3034612A009F45F4 /* Day2 */,
+				F27E812A3034612D009F45F4 /* Day2Tests */,
+				F27E81343034612D009F45F4 /* Day2UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F27E807230332C2B009F45F4 /* Resources */ = {
+		F27E811C3034612A009F45F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F27E807F30332C2F009F45F4 /* Resources */ = {
+		F27E81293034612D009F45F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F27E808930332C2F009F45F4 /* Resources */ = {
+		F27E81333034612D009F45F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F27E807030332C2B009F45F4 /* Sources */ = {
+		F27E811A3034612A009F45F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F27E807D30332C2F009F45F4 /* Sources */ = {
+		F27E81273034612D009F45F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F27E808730332C2F009F45F4 /* Sources */ = {
+		F27E81313034612D009F45F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F27E808330332C2F009F45F4 /* PBXTargetDependency */ = {
+		F27E812D3034612D009F45F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F27E807330332C2B009F45F4 /* iOS_Training */;
-			targetProxy = F27E808230332C2F009F45F4 /* PBXContainerItemProxy */;
+			target = F27E811D3034612A009F45F4 /* Day2 */;
+			targetProxy = F27E812C3034612D009F45F4 /* PBXContainerItemProxy */;
 		};
-		F27E808D30332C2F009F45F4 /* PBXTargetDependency */ = {
+		F27E81373034612D009F45F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F27E807330332C2B009F45F4 /* iOS_Training */;
-			targetProxy = F27E808C30332C2F009F45F4 /* PBXContainerItemProxy */;
+			target = F27E811D3034612A009F45F4 /* Day2 */;
+			targetProxy = F27E81363034612D009F45F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		F27E809330332C2F009F45F4 /* Debug */ = {
+		F27E813D3034612D009F45F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -332,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		F27E809430332C2F009F45F4 /* Release */ = {
+		F27E813E3034612D009F45F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -388,7 +388,7 @@
 			};
 			name = Release;
 		};
-		F27E809630332C2F009F45F4 /* Debug */ = {
+		F27E81403034612D009F45F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -407,7 +407,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.iOS-Training";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Day2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -419,7 +419,7 @@
 			};
 			name = Debug;
 		};
-		F27E809730332C2F009F45F4 /* Release */ = {
+		F27E81413034612D009F45F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -438,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.iOS-Training";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Day2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -450,7 +450,7 @@
 			};
 			name = Release;
 		};
-		F27E809930332C2F009F45F4 /* Debug */ = {
+		F27E81433034612D009F45F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -459,7 +459,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.iOS-TrainingTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Day2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -467,11 +467,11 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS_Training.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS_Training";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Day2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Day2";
 			};
 			name = Debug;
 		};
-		F27E809A30332C2F009F45F4 /* Release */ = {
+		F27E81443034612D009F45F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -480,7 +480,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.iOS-TrainingTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Day2Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -488,18 +488,18 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS_Training.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS_Training";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Day2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Day2";
 			};
 			name = Release;
 		};
-		F27E809C30332C2F009F45F4 /* Debug */ = {
+		F27E81463034612D009F45F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.iOS-TrainingUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Day2UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -507,18 +507,18 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = iOS_Training;
+				TEST_TARGET_NAME = Day2;
 			};
 			name = Debug;
 		};
-		F27E809D30332C2F009F45F4 /* Release */ = {
+		F27E81473034612D009F45F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.iOS-TrainingUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.Day2UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -526,50 +526,50 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = iOS_Training;
+				TEST_TARGET_NAME = Day2;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F27E806F30332C2B009F45F4 /* Build configuration list for PBXProject "iOS_Training" */ = {
+		F27E81193034612A009F45F4 /* Build configuration list for PBXProject "Day2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F27E809330332C2F009F45F4 /* Debug */,
-				F27E809430332C2F009F45F4 /* Release */,
+				F27E813D3034612D009F45F4 /* Debug */,
+				F27E813E3034612D009F45F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F27E809530332C2F009F45F4 /* Build configuration list for PBXNativeTarget "iOS_Training" */ = {
+		F27E813F3034612D009F45F4 /* Build configuration list for PBXNativeTarget "Day2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F27E809630332C2F009F45F4 /* Debug */,
-				F27E809730332C2F009F45F4 /* Release */,
+				F27E81403034612D009F45F4 /* Debug */,
+				F27E81413034612D009F45F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F27E809830332C2F009F45F4 /* Build configuration list for PBXNativeTarget "iOS_TrainingTests" */ = {
+		F27E81423034612D009F45F4 /* Build configuration list for PBXNativeTarget "Day2Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F27E809930332C2F009F45F4 /* Debug */,
-				F27E809A30332C2F009F45F4 /* Release */,
+				F27E81433034612D009F45F4 /* Debug */,
+				F27E81443034612D009F45F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F27E809B30332C2F009F45F4 /* Build configuration list for PBXNativeTarget "iOS_TrainingUITests" */ = {
+		F27E81453034612D009F45F4 /* Build configuration list for PBXNativeTarget "Day2UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F27E809C30332C2F009F45F4 /* Debug */,
-				F27E809D30332C2F009F45F4 /* Release */,
+				F27E81463034612D009F45F4 /* Debug */,
+				F27E81473034612D009F45F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F27E806C30332C2B009F45F4 /* Project object */;
+	rootObject = F27E81163034612A009F45F4 /* Project object */;
 }
