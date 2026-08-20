@@ -32,7 +32,7 @@ class Assignment {
         }
         
         let evenNumbers = numbers.filter {
-            $0 % 3 == 0
+            $0 % 2 == 0
         }
         
         print("Doubled: \(doubled)")
