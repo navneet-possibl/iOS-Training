@@ -8,10 +8,7 @@
 //Enums are used to represent a finite set of related values. They can have raw values, associated values, computed properties, and methods. commonly use enums for API states, navigation routes, user roles, and screen states.
 
 enum Direction {
-    case north
-    case south
-    case east
-    case west
+    case north , south , east , west //Cleaner
 }
 
 //MARK: - Enums with raw Value
@@ -23,13 +20,22 @@ enum HTTPStatus: Int {
 }
 
 //MARK: - String Raw Values
-
+//Use raw values when every case maps to a fixed underlying value.
 enum Environment : String{
     case production = "prod"
     case development = "dev"
     case uat = "uat"
 
 }
+//Use as:
+let environment = Environment.production
+//When to use raw values?
+//API values
+//Database values
+//UserDefaults
+//Server status codes
+//Fixed identifiers
+
 
 //MARK: - Enums with Methods
 
@@ -56,6 +62,23 @@ enum Result {
     case failure(code: Int, error: String)
     
 }
+
+enum APIResponse {
+    case success(data: String)
+    case failure(message: String)
+}
+
+//use as
+let response = APIResponse.success(data: "User data")
+
+//it can be used as :
+//switch response {
+//case .success(let data):
+//    print(data)
+//
+//case .failure(let message):
+//    print(message)
+//}
 
 class EnumExamples {
     let direction = Direction.north // knows the type of direction is north
@@ -107,3 +130,10 @@ class EnumExamples {
 //Raw has default predefined cases but associated can have different data for same case
 
 
+//MARK: - Raw value v sAssociated value
+
+//Raw Value                     Associated Value
+//Fixed value                   Dynamic data
+//Same type for all cases       Different data for each case
+//String, Int, etc.             Any type
+//case active = "active"        case success(User)

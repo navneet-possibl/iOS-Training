@@ -34,6 +34,9 @@ class ErrorHandling {
      try? → converts an error into nil
      try! → assumes there will be no error; can crash*/
     
+    //try! -- Avoid this in production unless failure is genuinely impossible. It crashes if an error occurs.
+    
+    //Use throws when a function can fail and the caller should handle the error.
     
     func login(email : String?, password : String) throws {
         if email == nil {
@@ -58,3 +61,42 @@ class ErrorHandling {
     }
 }
 
+//A good production error type should provide meaningful failure information.
+enum ProductionAPIError : Error {
+    case invalidURL
+    case invalidResponse
+    case unauthorized
+    case serverError(statusCode: Int)
+    case decodingError
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "The URL is invalid."
+
+        case .invalidResponse:
+            return "The server returned an invalid response."
+
+        case .unauthorized:
+            return "You are not authorized."
+
+        case .serverError(let statusCode):
+            return "Server error: \(statusCode)"
+
+        case .decodingError:
+            return "Unable to process the response."
+        }
+    }
+}
+
+//case serverError(statusCode: Int)
+//This connects Enums + Associated Values + Error Handling.
+
+
+//throws vs Result
+//Throws : The operation can fail and you want to propagate meaningful errors.
+
+//This is generally a clean choice with modern async/await.
+
+//RESULT:
+//Success and failure need to be represented explicitly, especially in callback-based APIs.
