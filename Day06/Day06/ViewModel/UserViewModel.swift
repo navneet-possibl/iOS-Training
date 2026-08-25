@@ -15,14 +15,15 @@ final class UserViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
 
-    private let userService: UserServiceProtocol
+    let randomNumber = Int.random(in: 1...10)
+    
+    private let userService: any UserServiceProtocol
 
-    init(userService: UserServiceProtocol = UserService()) {
+    // Constructor Injection
+    init(userService: any UserServiceProtocol) {
         self.userService = userService
     }
-  //  private let service = UserService() - bad example
-    
-    
+
     func fetchUser() async {
         isLoading = true
         errorMessage = nil
@@ -32,7 +33,7 @@ final class UserViewModel: ObservableObject {
         }
 
         do {
-            user = try await userService.fetchUser()
+            user = try await userService.fetchUser(id: randomNumber)
         } catch {
             errorMessage = error.localizedDescription
         }

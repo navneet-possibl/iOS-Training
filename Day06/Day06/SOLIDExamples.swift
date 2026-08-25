@@ -113,11 +113,6 @@ final class Developer: Workable, Eatable {
 
 //High-level modules should depend on abstractions, not concrete implementations.
 
-// Bad
-final class UsersViewModel {
-
-    private let service = UserService()
-}
 
 //corect
 final class UseViewModel {

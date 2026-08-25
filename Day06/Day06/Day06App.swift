@@ -11,7 +11,20 @@ import SwiftUI
 struct Day06App: App {
     var body: some Scene {
         WindowGroup {
-            UserView()
+
+            let apiClient = APIClient()
+
+            let userService = UserService(
+                apiClient: apiClient
+            )
+
+            let userViewModel = UserViewModel(
+                userService: userService
+            )
+
+            UserView(
+                viewModel: userViewModel
+            )
         }
     }
 }
