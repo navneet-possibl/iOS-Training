@@ -16,9 +16,12 @@ final class UserService: UserServiceProtocol {
         self.apiClient = apiClient
     }
 
-    func fetchUser(id : Int) async throws -> User {
-        try await apiClient.request(
-            from: "https://jsonplaceholder.typicode.com/users/\(id)",
+    func fetchUser(id: Int) async throws -> User {
+
+        let endpoint = UserEndpoint.user(id: id)
+
+        return try await apiClient.request(
+            endpoint: endpoint,
             responseType: User.self
         )
     }

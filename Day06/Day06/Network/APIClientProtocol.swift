@@ -10,7 +10,7 @@ import Foundation
 
 protocol APIClientProtocol {
     func request<T: Decodable>(
-        from urlString: String,
+        endpoint: any Endpoint,
         responseType: T.Type
     ) async throws -> T
 }

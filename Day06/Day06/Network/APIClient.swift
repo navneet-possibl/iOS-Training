@@ -5,23 +5,55 @@
 //  Created by HIMANK on 25/08/26.
 //
 
-
 import Foundation
 
 final class APIClient: APIClientProtocol {
 
     func request<T: Decodable>(
-        from urlString: String,
+        endpoint: any Endpoint,
         responseType: T.Type
     ) async throws -> T {
 
-        guard let url = URL(string: urlString) else {
+        let url = try makeURL(from: endpoint)
+
+        do {
+            let (data, response) = try await URLSession.shared.data(
+                from: url
+            )
+
+            try validate(response)
+
+            return try decode(
+                responseType,
+                from: data
+            )
+
+        } catch let error as APIError {
+            throw error
+
+        } catch {
+            throw APIError.networkError(error)
+        }
+    }
+
+    // MARK: - URL
+
+    private func makeURL(
+        from endpoint: any Endpoint
+    ) throws -> URL {
+
+        guard let url = URL(string: endpoint.urlString) else {
             throw APIError.invalidURL
         }
 
-        let (data, response) = try await URLSession.shared.data(
-            from: url
-        )
+        return url
+    }
+
+    // MARK: - Response Validation
+
+    private func validate(
+        _ response: URLResponse
+    ) throws {
 
         guard let httpResponse = response as? HTTPURLResponse else {
             throw APIError.invalidResponse
@@ -32,6 +64,14 @@ final class APIClient: APIClientProtocol {
                 httpResponse.statusCode
             )
         }
+    }
+
+    // MARK: - Decoding
+
+    private func decode<T: Decodable>(
+        _ type: T.Type,
+        from data: Data
+    ) throws -> T {
 
         do {
             return try JSONDecoder().decode(
@@ -39,7 +79,7 @@ final class APIClient: APIClientProtocol {
                 from: data
             )
         } catch {
-            throw APIError.decodingError
+            throw APIError.decodingError(error)
         }
     }
 }

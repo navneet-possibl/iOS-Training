@@ -4,38 +4,33 @@
 //
 //  Created by HIMANK on 24/08/26.
 //
-
 import Combine
 import Foundation
 
 @MainActor
 final class UserViewModel: ObservableObject {
 
-    @Published private(set) var user: User?
-    @Published private(set) var isLoading = false
-    @Published private(set) var errorMessage: String?
+    @Published private(set) var state: UserViewState = .idle
 
-    let randomNumber = Int.random(in: 1...10)
-    
     private let userService: any UserServiceProtocol
 
-    // Constructor Injection
     init(userService: any UserServiceProtocol) {
         self.userService = userService
     }
 
-    func fetchUser() async {
-        isLoading = true
-        errorMessage = nil
+    func fetchUser(id: Int) async {
 
-        defer {
-            isLoading = false
-        }
+        state = .loading
 
         do {
-            user = try await userService.fetchUser(id: randomNumber)
+            let user = try await userService.fetchUser(id: id)
+
+            state = .loaded(user)
+
         } catch {
-            errorMessage = error.localizedDescription
+            state = .failed(
+                error.localizedDescription
+            )
         }
     }
 }
