@@ -18,7 +18,13 @@ final class UserViewModel: ObservableObject {
         self.userService = userService
     }
 
-    func fetchUser(id: Int) async {
+    func loadUser() async {
+        let randomID = Int.random(in: 1...10)
+
+        await fetchUser(id: randomID)
+    }
+    
+    private func fetchUser(id: Int) async {
 
         state = .loading
 

@@ -50,8 +50,8 @@ struct UserView: View {
             
             Button("Load User") {
                 Task {
-                    let randomID = Int.random(in: 1...10)
-                    await viewModel.fetchUser(id: randomID)
+                    await viewModel.loadUser()
+
                 }
             }
         }
