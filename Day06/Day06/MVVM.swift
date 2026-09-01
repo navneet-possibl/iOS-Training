@@ -177,3 +177,5 @@
 //## Interview Definition
 //
 //> **MVVM separates the UI from business and presentation logic. The View displays data, the ViewModel manages UI state and coordinates business logic, and the Model represents the application's data. This separation improves maintainability, testability, and scalability.**
+
+

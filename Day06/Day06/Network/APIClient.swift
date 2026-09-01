@@ -7,7 +7,22 @@
 
 import Foundation
 
+import Foundation
+
 final class APIClient: APIClientProtocol {
+
+    private let session: URLSession
+    private let baseURL: URL
+
+    init(
+        session: URLSession = .shared,
+        baseURL: URL = URL(
+            string: "https://jsonplaceholder.typicode.com"
+        )!
+    ) {
+        self.session = session
+        self.baseURL = baseURL
+    }
 
     func request<T: Decodable>(
         endpoint: any Endpoint,
@@ -16,9 +31,20 @@ final class APIClient: APIClientProtocol {
 
         let url = try makeURL(from: endpoint)
 
+        var request = URLRequest(url: url)
+
+        request.httpMethod = endpoint.method.rawValue
+
+        endpoint.headers.forEach {
+            request.setValue(
+                $1,
+                forHTTPHeaderField: $0
+            )
+        }
+
         do {
-            let (data, response) = try await URLSession.shared.data(
-                from: url
+            let (data, response) = try await session.data(
+                for: request
             )
 
             try validate(response)
@@ -42,7 +68,15 @@ final class APIClient: APIClientProtocol {
         from endpoint: any Endpoint
     ) throws -> URL {
 
-        guard let url = URL(string: endpoint.urlString) else {
+        var components = URLComponents(
+            url: baseURL,
+            resolvingAgainstBaseURL: false
+        )
+
+        components?.path = endpoint.path
+        components?.queryItems = endpoint.queryItems
+
+        guard let url = components?.url else {
             throw APIError.invalidURL
         }
 

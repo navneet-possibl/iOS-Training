@@ -9,16 +9,38 @@
 import Foundation
 
 protocol Endpoint {
-    var urlString: String { get }
+    var path: String { get }
+    var method: HTTPMethod { get }
+    var headers: [String: String] { get }
+    var queryItems: [URLQueryItem] { get }
+}
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
 }
 
 enum UserEndpoint: Endpoint {
     case user(id: Int)
 
-    var urlString: String {
+    var path: String {
         switch self {
         case .user(let id):
-            return "https://jsonplaceholder.typicode.com/users/\(id)"
+            return "/users/\(id)"
         }
+    }
+
+    var method: HTTPMethod {
+        .get
+    }
+
+    var headers: [String: String] {
+        [:]
+    }
+
+    var queryItems: [URLQueryItem] {
+        []
     }
 }

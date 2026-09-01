@@ -76,8 +76,8 @@ Prefer:
 
 ```swift
 struct UserView: View {
-    @StateObject var viewModel: UserViewModel
-
+ @StateObject private var viewModel: UserViewModel
+ 
     var body: some View {
         // UI only
     }
