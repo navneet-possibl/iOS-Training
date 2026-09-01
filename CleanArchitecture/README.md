@@ -212,3 +212,251 @@ Use Clean Architecture when the added boundaries provide value through:
 - long-lived features
 - replaceable infrastructure
 
+
+# Day 12 — Domain, Data & Presentation Layers
+
+
+Presentation
+      ↓
+    Domain
+      ↑
+     Data
+
+##1. Presentation Layer
+
+The Presentation layer is responsible for the UI and UI state.
+
+Components
+
+SwiftUI Views
+
+ViewModels
+
+Responsibilities
+
+Display data
+
+Handle user interactions
+
+Manage UI state
+
+Call Domain Use Cases
+
+Update the UI based on results
+
+Key Principle
+
+The Presentation layer should not:
+
+Make API calls directly
+
+Know about DTOs
+
+Create repositories
+
+Contain business logic
+
+##2. Domain Layer
+
+The Domain layer is the core of the application and contains business-related logic.
+
+Components
+
+Entities
+
+Use Cases
+
+Repository Protocols
+
+Responsibilities
+
+Define business rules
+
+Represent business entities
+
+Define application operations
+
+Define repository abstractions
+
+Example:
+
+struct User: Identifiable {
+    let id: Int
+    let name: String
+    let email: String
+}
+
+Repository abstraction:
+
+protocol UserRepository {
+    func getUsers() async throws -> [User]
+}
+
+Key Principle
+
+The Domain layer should not depend on:
+
+SwiftUI
+
+UIKit
+
+URLSession
+
+API implementation
+
+Database
+
+DTOs
+
+Third-party frameworks
+
+The Domain defines what the application needs, not how it is implemented.
+
+##3. Data Layer
+
+The Data layer is responsible for external data sources and infrastructure.
+
+Components
+
+DTOs
+
+Mappers
+
+API Clients
+
+Repository Implementations
+
+Database / Persistence
+
+Responsibilities
+
+Fetch data from APIs
+
+Read/write persistent data
+
+Decode API responses
+
+Map DTOs to Domain Entities
+
+Implement Domain repository protocols
+
+Example:
+
+struct UserDTO: Decodable {
+    let id: Int
+    let name: String
+    let email: String
+}
+
+Repository implementation:
+
+final class UserRepositoryImpl: UserRepository {
+
+    private let apiClient: APIClientProtocol
+
+    init(apiClient: APIClientProtocol) {
+        self.apiClient = apiClient
+    }
+
+    func getUsers() async throws -> [User] {
+        // Fetch DTOs and map them to Domain entities
+    }
+}
+
+##4. Data Flow
+
+The overall flow is:
+
+API
+ ↓
+UserDTO
+ ↓
+Mapper
+ ↓
+User
+ ↓
+UseCase
+ ↓
+ViewModel
+ ↓
+SwiftUI View
+
+The API-specific model stays inside the Data layer.
+
+The Presentation layer works with the clean Domain model.
+
+##5. Domain Entity vs DTO
+
+Domain Entity
+
+DTO
+
+Represents business data
+
+Represents external/API data
+
+Lives in Domain
+
+Lives in Data
+
+Independent of API
+
+Usually tied to API structure
+
+Used by Use Cases
+
+Used for decoding
+
+Should remain stable
+
+Can change when API changes
+
+Example:
+
+API JSON
+   ↓
+UserDTO
+   ↓
+User
+
+This separation prevents API changes from leaking into the business layer.
+
+##6. Dependency Direction
+
+The main dependency rule is:
+
+Presentation → Domain
+Data → Domain
+
+The Domain layer should remain independent.
+
+        Presentation
+             ↓
+          Domain
+             ↑
+            Data
+
+The Data layer implements the abstractions defined by Domain.
+
+
+##7. Key Takeaways
+
+Presentation handles UI and UI state.
+
+Domain contains business rules and application abstractions.
+
+Data handles APIs, persistence, DTOs and implementations.
+
+Repository protocols belong to Domain.
+
+Repository implementations belong to Data.
+
+DTOs should not leak into Presentation or Domain.
+
+Mappers create a boundary between external data and business data.
+
+Domain should remain independent of infrastructure.
+
+Dependency Injection connects the layers.
+
+Architecture should be proportional to application complexity.
