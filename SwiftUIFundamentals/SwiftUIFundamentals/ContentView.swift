@@ -9,42 +9,45 @@ import SwiftUI
 
 //Everything we display in SwiftUI is generally a View. and view is a protocol
 struct ContentView: View {
-    
+
     @State private var isLoggedIn = false
     @State private var count = 0
-//    @State is used for local view state.
-    var body: some View {
-        //Stack
-        VStack(spacing: 24) {
-            //Image
-            Image(systemName: "heart.fill")
-            
-            
-            //ConditionalUI
-            if isLoggedIn {
-                Text("Welcome !")
-            } else {
-                Text("Please log in")
-            }
-            
-            //Text
-            Text(isLoggedIn ? "Welcome" : "Please Login")
-                .font(.title)
-                .foregroundStyle(.red)
-                .padding()
-            
-            //Button
-            Button("Login") {
-                isLoggedIn = true
-            }
-            
-            HStack{
-                Text("Count: \(count)")
+    //    @State is used for local view state.
 
-                Button("Increment") {
-                    count += 1
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 24) {
+
+                Image(systemName: "heart.fill")
+
+                if isLoggedIn {
+                    Text("Welcome!")
+                } else {
+                    Text("Log in")
+                }
+
+                Text(isLoggedIn ? "Welcome" : "Please Login to view Task List")
+                    .font(.caption)
+                    .foregroundStyle(.black)
+                    .padding()
+
+                NavigationLink {
+                    TaskListView()
+                } label: {
+                    Text("Login")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+
+                HStack {
+                    Text("Count: \(count)")
+
+                    Button("Increment") {
+                        count += 1
+                    }
                 }
             }
+            .padding()
         }
     }
 }
