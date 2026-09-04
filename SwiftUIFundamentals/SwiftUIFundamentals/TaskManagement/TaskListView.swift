@@ -84,6 +84,9 @@ struct TaskListView: View {
     }
 }
 
+#Preview {
+    TaskListView()
+}
 /*@State
  ↓
 TaskListView owns ViewModel
