@@ -10,14 +10,6 @@ import Foundation
 @testable import CleanArchitecture
 
 
-protocol APIClientProtocol {
-    func get<T: Decodable>(
-        _ type: T.Type,
-        from url: URL
-    ) async throws -> T
-}
-
-
 final class MockAPIClient: APIClientProtocol {
 
     var result: Any?
@@ -34,7 +26,7 @@ final class MockAPIClient: APIClientProtocol {
         getCalled = true
         requestedURL = url
 
-        if let error {
+        if let error = error {
             throw error
         }
 
