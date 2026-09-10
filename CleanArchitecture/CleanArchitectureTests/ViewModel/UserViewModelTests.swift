@@ -11,6 +11,20 @@ import XCTest
 
 @MainActor
 final class UserViewModelTests: XCTestCase {
+    
+    
+    func test_initialState() {
+
+            let useCase = MockGetUsersUseCase()
+
+            let viewModel = UserViewModel(
+                getUsers: useCase
+            )
+
+            XCTAssertTrue(viewModel.users.isEmpty)
+            XCTAssertFalse(viewModel.isLoading)
+            XCTAssertNil(viewModel.errorMessage)
+        }
 
     func test_loadUsers_success() async {
 
@@ -49,6 +63,93 @@ final class UserViewModelTests: XCTestCase {
         XCTAssertTrue(useCase.executeCalled)
     }
 
+    
+    func test_getUsers_emptyResponse_returnsEmptyArray() async throws {
+
+        let apiClient = MockAPIClient()
+
+        apiClient.result = [UserDTO]()
+
+        let repository = UserRepositoryImpl(
+            apiClient: apiClient
+        )
+
+        let users = try await repository.getUsers()
+
+        XCTAssertTrue(users.isEmpty)
+    }
+    
+    func test_getUsers_singleUser() async throws {
+
+        let apiClient = MockAPIClient()
+
+        apiClient.result = [
+            UserDTO(
+                id: 1,
+                name: "John",
+                email: "john@example.com"
+            )
+        ]
+
+        let repository = UserRepositoryImpl(
+            apiClient: apiClient
+        )
+
+        let users = try await repository.getUsers()
+
+        XCTAssertEqual(users.count, 1)
+        XCTAssertEqual(users.first?.name, "John")
+    }
+    
+    func test_getUsers_manyUsers() async throws {
+
+        let apiClient = MockAPIClient()
+
+        apiClient.result = (1...100).map {
+            UserDTO(
+                id: $0,
+                name: "User \($0)",
+                email: "user\($0)@example.com"
+            )
+        }
+
+        let repository = UserRepositoryImpl(
+            apiClient: apiClient
+        )
+
+        let users = try await repository.getUsers()
+
+        XCTAssertEqual(users.count, 100)
+    }
+    
+    func test_execute_usersWithSameName() async throws {
+
+        let repository = MockUserRepository()
+
+        repository.users = [
+            User(
+                id: 1,
+                name: "John",
+                email: "john1@example.com"
+            ),
+            User(
+                id: 2,
+                name: "John",
+                email: "john2@example.com"
+            )
+        ]
+
+        let useCase = GetUsersUseCaseImpl(
+            repository: repository
+        )
+
+        let users = try await useCase.execute()
+
+        XCTAssertEqual(users.count, 2)
+        XCTAssertEqual(users[0].name, "John")
+        XCTAssertEqual(users[1].name, "John")
+    }
+    
     func test_loadUsers_failure_setsErrorMessage() async {
 
         let useCase = MockGetUsersUseCase()
