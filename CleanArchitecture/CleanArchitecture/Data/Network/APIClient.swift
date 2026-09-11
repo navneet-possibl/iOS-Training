@@ -11,15 +11,26 @@ protocol APIClientProtocol {
 }
 
 enum APIError: LocalizedError {
+
+    case invalidURL
     case invalidResponse
     case httpStatus(Int)
+    case decodingError
 
     var errorDescription: String? {
         switch self {
+
+        case .invalidURL:
+            return "The URL is invalid."
+
         case .invalidResponse:
             return "The server returned an invalid response."
+
         case .httpStatus(let status):
             return "The server returned HTTP status \(status)."
+
+        case .decodingError:
+            return "The server returned data in an unexpected format."
         }
     }
 }
@@ -42,6 +53,10 @@ final class APIClient: APIClientProtocol {
             throw APIError.httpStatus(httpResponse.statusCode)
         }
 
-        return try JSONDecoder().decode(T.self, from: data)
+        do {
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch {
+            throw APIError.decodingError
+        }
     }
 }

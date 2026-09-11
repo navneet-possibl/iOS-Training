@@ -8,6 +8,7 @@
 import Foundation
 
 final class UserRepositoryImpl: UserRepository {
+
     private let apiClient: APIClientProtocol
 
     init(apiClient: APIClientProtocol) {
@@ -15,9 +16,20 @@ final class UserRepositoryImpl: UserRepository {
     }
 
     func getUsers() async throws -> [User] {
-        let url = URL(string: "https://jsonplaceholder.typicode.com/users")!
-        let response: [UserDTO] = try await apiClient.get([UserDTO].self, from: url)
 
-        return response.map { $0.toDomain()}
+        guard let url = URL(
+            string: "https://jsonplaceholder.typicode.com/users"
+        ) else {
+            throw APIError.invalidURL
+        }
+
+        let response: [UserDTO] = try await apiClient.get(
+            [UserDTO].self,
+            from: url
+        )
+
+        return response.map {
+            $0.toDomain()
+        }
     }
 }
