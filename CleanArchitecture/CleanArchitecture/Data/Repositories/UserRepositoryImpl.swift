@@ -9,17 +9,24 @@ import Foundation
 
 final class UserRepositoryImpl: UserRepository {
 
-    private let apiClient: APIClientProtocol
+    static let defaultUsersEndpoint = "https://jsonplaceholder.typicode.com/users"
 
-    init(apiClient: APIClientProtocol) {
+    private let apiClient: APIClientProtocol
+    private let usersEndpoint: String
+
+    init(
+        apiClient: APIClientProtocol,
+        usersEndpoint: String = UserRepositoryImpl.defaultUsersEndpoint
+    ) {
         self.apiClient = apiClient
+        self.usersEndpoint = usersEndpoint
     }
 
     func getUsers() async throws -> [User] {
 
-        guard let url = URL(
-            string: "https://jsonplaceholder.typicode.com/users"
-        ) else {
+        guard let url = URL(string: usersEndpoint),
+              !usersEndpoint.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        else {
             throw APIError.invalidURL
         }
 

@@ -8,7 +8,7 @@ import Foundation
 
 final class AppDependencyContainer {
     private lazy var apiClient: APIClientProtocol = APIClient(
-        session: .shared
+        session: URLSession.shared
     )
 
     private lazy var userRepository: UserRepository = UserRepositoryImpl(

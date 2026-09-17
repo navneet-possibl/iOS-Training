@@ -10,7 +10,13 @@ protocol APIClientProtocol {
     func get<T: Decodable>(_ type: T.Type, from url: URL) async throws -> T
 }
 
-enum APIError: LocalizedError {
+protocol URLSessionProtocol {
+    func data(from url: URL) async throws -> (Data, URLResponse)
+}
+
+extension URLSession: URLSessionProtocol {}
+
+enum APIError: LocalizedError, Equatable {
 
     case invalidURL
     case invalidResponse
@@ -36,9 +42,10 @@ enum APIError: LocalizedError {
 }
 
 final class APIClient: APIClientProtocol {
-    private let session: URLSession
 
-    init(session: URLSession) {
+    private let session: URLSessionProtocol
+
+    init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
 

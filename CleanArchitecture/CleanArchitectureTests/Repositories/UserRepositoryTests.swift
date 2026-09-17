@@ -11,100 +11,98 @@ import XCTest
 final class UserRepositoryTests: XCTestCase {
 
     func test_getUsers_success() async throws {
-
         let apiClient = MockAPIClient()
+        apiClient.stub = .users([
+            UserDTO(id: 1, name: "John", email: "john@example.com"),
+            UserDTO(id: 2, name: "Alice", email: "alice@example.com")
+        ])
 
-        apiClient.result = [
-            UserDTO(
-                id: 1,
-                name: "John",
-                email: "john@example.com"
-            ),
-            UserDTO(
-                id: 2,
-                name: "Alice",
-                email: "alice@example.com"
-            )
-        ]
-
-        let repository = UserRepositoryImpl(
-            apiClient: apiClient
-        )
-
+        let repository = UserRepositoryImpl(apiClient: apiClient)
         let users = try await repository.getUsers()
 
         XCTAssertTrue(apiClient.getCalled)
-
+        XCTAssertEqual(
+            apiClient.requestedURL,
+            URL(string: UserRepositoryImpl.defaultUsersEndpoint)
+        )
         XCTAssertEqual(users.count, 2)
-
-        XCTAssertEqual(users[0].id, 1)
-        XCTAssertEqual(users[0].name, "John")
-        XCTAssertEqual(users[0].email, "john@example.com")
-
-        XCTAssertEqual(users[1].id, 2)
-        XCTAssertEqual(users[1].name, "Alice")
-        XCTAssertEqual(users[1].email, "alice@example.com")
+        XCTAssertEqual(users[0], User(id: 1, name: "John", email: "john@example.com"))
+        XCTAssertEqual(users[1], User(id: 2, name: "Alice", email: "alice@example.com"))
     }
 
     func test_getUsers_mapsDTOToDomain() async throws {
-
         let apiClient = MockAPIClient()
+        apiClient.stub = .users([
+            UserDTO(id: 10, name: "Test User", email: "test@example.com")
+        ])
 
-        apiClient.result = [
-            UserDTO(
-                id: 10,
-                name: "Test User",
-                email: "test@example.com"
-            )
-        ]
-
-        let repository = UserRepositoryImpl(
-            apiClient: apiClient
-        )
-
+        let repository = UserRepositoryImpl(apiClient: apiClient)
         let users = try await repository.getUsers()
-
-        XCTAssertEqual(users.count, 1)
-
         let user = try XCTUnwrap(users.first)
 
-        XCTAssertEqual(user.id, 10)
-        XCTAssertEqual(user.name, "Test User")
-        XCTAssertEqual(user.email, "test@example.com")
+        XCTAssertEqual(user, User(id: 10, name: "Test User", email: "test@example.com"))
     }
 
-    func test_getUsers_whenAPIClientFails_throwsError() async {
-
+    func test_getUsers_whenAPIClientFails_throwsNetworkError() async {
         let apiClient = MockAPIClient()
-        apiClient.error = TestError.networkError
+        apiClient.stub = .failure(TestError.networkError)
 
-        let repository = UserRepositoryImpl(
-            apiClient: apiClient
-        )
+        let repository = UserRepositoryImpl(apiClient: apiClient)
 
         do {
             _ = try await repository.getUsers()
-
-            XCTFail("Expected repository to throw an error")
-
-        } catch {
+            XCTFail("Expected repository to throw TestError.networkError")
+        } catch let error as TestError {
             XCTAssertTrue(apiClient.getCalled)
-            XCTAssertTrue(error is TestError)
+            XCTAssertEqual(error, .networkError)
+        } catch {
+            XCTFail("Expected TestError.networkError, got \(error)")
         }
     }
 
     func test_getUsers_withEmptyResponse_returnsEmptyArray() async throws {
-
         let apiClient = MockAPIClient()
+        apiClient.stub = .users([])
 
-        apiClient.result = [UserDTO]()
-
-        let repository = UserRepositoryImpl(
-            apiClient: apiClient
-        )
-
+        let repository = UserRepositoryImpl(apiClient: apiClient)
         let users = try await repository.getUsers()
 
         XCTAssertTrue(users.isEmpty)
+    }
+
+    func test_getUsers_withEmptyEndpoint_throwsInvalidURL() async {
+        let apiClient = MockAPIClient()
+        let repository = UserRepositoryImpl(
+            apiClient: apiClient,
+            usersEndpoint: ""
+        )
+
+        do {
+            _ = try await repository.getUsers()
+            XCTFail("Expected repository to throw APIError.invalidURL")
+        } catch let error as APIError {
+            XCTAssertEqual(error, .invalidURL)
+            XCTAssertFalse(apiClient.getCalled)
+        } catch {
+            XCTFail("Expected APIError.invalidURL, got \(error)")
+        }
+    }
+
+    func test_getUsers_withWhitespaceEndpoint_throwsInvalidURL() async {
+        let apiClient = MockAPIClient()
+        let repository = UserRepositoryImpl(
+            apiClient: apiClient,
+            usersEndpoint: "   "
+        )
+
+        do {
+            _ = try await repository.getUsers()
+            XCTFail("Expected repository to throw APIError.invalidURL")
+        } catch let error as APIError {
+            XCTAssertEqual(error, .invalidURL)
+            XCTAssertFalse(apiClient.getCalled)
+        } catch {
+            XCTFail("Expected APIError.invalidURL, got \(error)")
+        }
     }
 }
